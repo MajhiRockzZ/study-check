@@ -24,11 +24,21 @@ function IncompleteList(props) {
           <List.Item>
             {item}{" "}
             <span style={{ float: "right" }}>
-              <Button type="danger" size="small" ghost>
+              <Button
+                type="danger"
+                size="small"
+                ghost
+                onClick={() => props.onRemoveTodos(item)}
+              >
                 <Icon type="delete" theme="twoTone" twoToneColor="#c0392b" />{" "}
                 Remove
               </Button>{" "}
-              <Button type="primary" size="small" ghost>
+              <Button
+                type="primary"
+                size="small"
+                ghost
+                onClick={() => props.onToggleTodos(item)}
+              >
                 <Icon
                   type="check-circle"
                   theme="twoTone"

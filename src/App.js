@@ -33,6 +33,7 @@ class App extends React.Component {
 
     this.updateInput = this.updateInput.bind(this);
     this.handleAddTodo = this.handleAddTodo.bind(this);
+    this.handleRemoveTodos = this.handleRemoveTodos.bind(this);
   }
 
   handleAddTodo() {
@@ -45,6 +46,16 @@ class App extends React.Component {
           }
         ]),
         input: ""
+      };
+    });
+  }
+
+  handleRemoveTodos(title) {
+    this.setState(currentState => {
+      return {
+        todoList: currentState.todoList.filter(
+          todoItem => todoItem.title !== title
+        )
       };
     });
   }
@@ -97,11 +108,15 @@ class App extends React.Component {
               list={this.state.todoList.filter(
                 todoItem => todoItem.todo === true
               )}
+              onRemoveTodos={this.handleRemoveTodos}
+              onToggleTodos={this.handleToggleTodos}
             />
             <CompletedList
               list={this.state.todoList.filter(
                 todoItem => todoItem.todo === false
               )}
+              onRemoveTodos={this.handleRemoveTodos}
+              onToggleTodos={this.handleToggleTodos}
             />
           </Col>
         </Row>
