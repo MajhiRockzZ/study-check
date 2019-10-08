@@ -93,8 +93,16 @@ class App extends React.Component {
                 <Icon type="close-circle" /> Clear All
               </Button>
             </Card>
-            <IncompleteList list={this.state.todoList} />
-            <CompletedList list={this.state.todoList} />
+            <IncompleteList
+              list={this.state.todoList.filter(
+                todoItem => todoItem.todo === true
+              )}
+            />
+            <CompletedList
+              list={this.state.todoList.filter(
+                todoItem => todoItem.todo === false
+              )}
+            />
           </Col>
         </Row>
       </div>
