@@ -30,6 +30,16 @@ class App extends React.Component {
       ],
       input: ""
     };
+
+    this.updateInput = this.updateInput.bind(this);
+  }
+
+  updateInput(e) {
+    const value = e.target.value;
+
+    this.setState({
+      input: value
+    });
   }
 
   render() {
@@ -41,7 +51,12 @@ class App extends React.Component {
               <Icon type="book" /> Todo
             </Title>
             <Card title="Add new todos ⚡">
-              <Input placeholder="New Todo" />
+              <Input
+                type="text"
+                placeholder="New Todo"
+                value={this.state.input}
+                onChange={this.updateInput}
+              />
               <Button type="primary" block style={{ marginTop: 10 }}>
                 <Icon type="plus-circle" /> Add Todo
               </Button>
