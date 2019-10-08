@@ -34,6 +34,7 @@ class App extends React.Component {
     this.updateInput = this.updateInput.bind(this);
     this.handleAddTodo = this.handleAddTodo.bind(this);
     this.handleRemoveTodos = this.handleRemoveTodos.bind(this);
+    this.handleToggleTodos = this.handleToggleTodos.bind(this);
   }
 
   handleAddTodo() {
@@ -56,6 +57,25 @@ class App extends React.Component {
         todoList: currentState.todoList.filter(
           todoItem => todoItem.title !== title
         )
+      };
+    });
+  }
+
+  handleToggleTodos(title) {
+    this.setState(currentState => {
+      const todoItemTemp = currentState.todoList.find(
+        todoItem => todoItem.title === title
+      );
+
+      return {
+        todoList: currentState.todoList
+          .filter(todoItem => todoItem.title !== title)
+          .concat([
+            {
+              title,
+              todo: !todoItemTemp.todo
+            }
+          ])
       };
     });
   }

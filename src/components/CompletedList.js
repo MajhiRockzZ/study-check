@@ -39,12 +39,8 @@ function CompletedList(props) {
                 ghost
                 onClick={() => props.onToggleTodos(item)}
               >
-                <Icon
-                  type="check-circle"
-                  theme="twoTone"
-                  twoToneColor="#52c41a"
-                />{" "}
-                Done
+                <Icon type="up-circle" theme="twoTone" twoToneColor="#52c41a" />{" "}
+                Todo
               </Button>
             </span>
           </List.Item>
