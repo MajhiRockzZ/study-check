@@ -1,12 +1,11 @@
 /* Default React Imports */
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import IncompleteList from "./components/IncompleteList";
 import CompletedList from "./components/CompletedList";
 
 /* Ant Design Imports */
-import { Input, Row, Col, Button, Icon, Divider, Typography, Card } from "antd";
+import { Input, Row, Col, Button, Icon, Typography, Card } from "antd";
 import "antd/dist/antd.css";
 const { Title } = Typography;
 
