@@ -32,6 +32,21 @@ class App extends React.Component {
     };
 
     this.updateInput = this.updateInput.bind(this);
+    this.handleAddTodo = this.handleAddTodo.bind(this);
+  }
+
+  handleAddTodo() {
+    this.setState(currentState => {
+      return {
+        todoList: currentState.todoList.concat([
+          {
+            title: this.state.input,
+            todo: true
+          }
+        ]),
+        input: ""
+      };
+    });
   }
 
   updateInput(e) {
@@ -57,10 +72,24 @@ class App extends React.Component {
                 value={this.state.input}
                 onChange={this.updateInput}
               />
-              <Button type="primary" block style={{ marginTop: 10 }}>
+              <Button
+                type="primary"
+                block
+                style={{ marginTop: 10 }}
+                onClick={this.handleAddTodo}
+              >
                 <Icon type="plus-circle" /> Add Todo
               </Button>
-              <Button type="danger" block style={{ marginTop: 10 }}>
+              <Button
+                type="danger"
+                block
+                style={{ marginTop: 10 }}
+                onClick={() =>
+                  this.setState({
+                    todoList: []
+                  })
+                }
+              >
                 <Icon type="close-circle" /> Clear All
               </Button>
             </Card>
